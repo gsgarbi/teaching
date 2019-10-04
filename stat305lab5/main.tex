@@ -1,0 +1,144 @@
+\input{macros/typesetting-macros}
+\usepackage{enumitem}
+\graphicspath{{./figures/}}
+
+\def\htheta{\hat{\theta}}
+\def\ttheta{\tilde{\theta}}
+\def\sumn{\sum_{i=1}^n}
+\def\sl{\textbf{Solution:\\}}
+
+\newcommand{\labnr}{5}  % Set the lab number (must be done before including the head macro)
+\setboolean{typesetsolution}{true} % If true, typeset the solution, otherwise the lab sheet for students is created.
+
+\begin{document}
+
+\input{macros/head}
+
+\input{macros/names}
+
+The goal of this laboratory is to practice the main procedures and concepts involved in Maximum Likelihood Estimation.
+
+% questions
+\begin{enumerate}
+
+\question{2}{
+Let $Y_i \text{, for } i = 1, ..., n$, be independent random variables such that:
+\[
+Y_i \sim N(\theta x_i, 1)
+\]
+Assume that $\{x_i\} $ are \textbf{known constants} and they are not all 0, while $\theta$ is an \textbf{unknown parameter} that we want to estimate. Notice that the $Y_i$ are \textbf{NOT} identically distributed.
+\begin{enumerate}[label=(\alph*)]
+
+% Question 1a
+\item Show that the joint likelihood function can be written as 
+$
+f_{Y_1, ..., Y_n}(y_1, ..., y_n | \theta) = c e^{\sum -\frac{1}{2}(y_i - \theta x_i)^2}
+$, where $c$ is a constant that does not depend on $\theta$.}
+
+% Solution 1a
+\sol{
+\sl
+$
+f_{Y_1, ..., Y_n}(y_1, ..., y_n | \theta) = \prod^{n}_{i=1} \frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}(y_i - \theta x_i)^2} = c e^{\sum -\frac{1}{2}(y_i - \theta x_i)^2}
+$
+}
+
+%need to force next page here
+\pagebreak
+
+% Question 1b
+\item Hence, argue that we can write the joint log likelihood function as:
+\[
+l(\theta) = ln f_{Y_1, ..., Y_n}(y_1, ..., y_n | \theta) = c^{\prime} + -\frac{1}{2}\sum{(y_i - \theta x_i)^2},
+\]where $c'$ is a constant that does not depend on $\theta$. 
+
+% Solution 1b
+\sol{
+\sl
+Take ln of result in 1. (Write in detail later)}
+\end{enumerate}
+
+
+
+
+
+\question{2}{
+Let $\hat{\theta}$ be the Maximum Likelihood \textbf{estimate} of $\theta$. Show that: 
+\[
+\hat{\theta} = \frac{\sum{x_iy_i}}{\sum x^2_i}
+\]
+Using the \textbf{appropriate notation} seen in class, write down the Maximum Likelihood  \textbf{Estimator} (MLE) of $\theta$.
+}
+\sol{
+\sl
+$
+l'(\theta) =  \sumn (y_i - \theta x_i)x_i \\
+l'(\theta) = 0 \implies \sumn (y_i - \theta x_i)x_i = 0 \implies \hat{\theta} = \frac{\sum{x_iy_i}}{\sum x^2_i} \\
+\ttheta = \frac{\sum x_iY_i}{\sum x^2_i} \\
+l''(\theta) =  - \sumn x_i^2 < 0
+$
+}
+
+
+
+\question{2}{The MLE of $\theta$, denoted $\ttheta$ is a random variable and, as such, has properties such as expected value and variance. We are interested in computing variance of $\ttheta$ in this question.
+}
+\begin{enumerate}[label=(\alph*)]
+\item Find $\Var(\ttheta)$. You can use basic properties of the variance operator to find it.
+\sol{
+\sl
+$
+\Var(\ttheta) = \Var(\frac{\sum x_iY_i}{\sum x^2_i}) = \frac{1}{(\sum x^2_i)^2} \sum x_i^2 Var(Y_i) = \frac{\sum x_i^2}{(\sum x^2_i)^2} = \frac{1}{\sumn x^2_i}
+$
+}
+
+\item Now use the Fisher Information to find an approximation for $\Var(\ttheta)$. Compare the approximation for $\Var(\ttheta)$ from the Fisher information and the exact value for $\Var(\ttheta)$ obtained in the previous question. Do they coincide\textit{ in this case}?
+
+\sol{
+\sl
+$
+I(\theta) = - E(l''(\theta)) = E (\sumn x_i^2) = \sumn x_i^2 \\
+\text{An approximation for $\Var(\ttheta)$ is then: } \frac{1}{I(\theta)} = \frac{1}{\sumn x^2_i} \\
+$
+The approximation and the exact value for $\Var(\ttheta)$ coincide in this case.
+}
+
+\end{enumerate}
+
+\question{1}{Find a 95\% CI for $\theta$. Denote $z_{0.975}$ the 97.5\% quantile of a standard normal distribution.}
+\sol{
+\sl
+
+%We do not know the distribution of $\ttheta$ (yet), but we can give a CI for $theta$ using that:\\
+%
+
+}
+
+\question{3}{In this particular case, we can find more about $\ttheta$.}
+\begin{enumerate}[label=(\alph*)]
+\item Show that $\tilde{\theta}$ is an unbiased estimator for $\theta$. Is it always the case that MLEs are unbiased?
+\sol{}
+
+\item Use a result seen in class to show that,\textit{ in this particular case}, we can find the \textbf{exact} distribution of $\tilde{\theta}$. Provide its distribution with parameter(s). What does it say about the CI previously obtained?
+\sol{}
+
+\end{enumerate}
+
+
+
+\question{optional. 2 bonus}{
+Use a property of MLE's to find the MLE for $\theta^2$. Name the property used. Is this estimator unbiased?
+}
+
+\item (optional. discuss with your lab partners if time allows) We have seen in an clicker question in class that the recipe above isn't the only way to compute MLE's. In fact, taking derivatives is often not possible or practical. Given $X_i \sim U(0, \theta)$, try to do the same we did above to find the MLE for $\theta$. What happens when you attempt to proceed as instructed in question 2? How would you find the MLE in this case?
+
+%\question{bonus}{compare $S^2$ and sigma hat. }
+%\sol{sol here}
+%%
+%\question{bonus}{Argue that sigma tilde squared, the MLE for variance, is biased, but assymp unbiased }
+%\sol{sol here}
+
+\end{enumerate}
+
+
+\end{document}

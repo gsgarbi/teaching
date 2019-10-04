@@ -1,0 +1,9 @@
+
+\sl
+$
+l'(\theta) =  \sumn (y_i - \theta x_i)x_i \\
+l'(\theta) = 0 \implies \sumn (y_i - \theta x_i)x_i = 0 \implies \hat{\theta} = \frac{\sum{x_iy_i}}{\sum x^2_i} \\
+\ttheta = \frac{\sum x_iY_i}{\sum x^2_i} \\
+l''(\theta) =  - \sumn x_i^2 < 0
+$
+^^E^^L 

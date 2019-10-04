@@ -1,0 +1,6 @@
+
+\sl
+$
+f_{Y_1, ..., Y_n}(y_1, ..., y_n | \theta) = \prod^{n}_{i=1} \frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}(y_i - \theta x_i)^2} = c e^{\sum -\frac{1}{2}(y_i - \theta x_i)^2}
+$
+^^E^^L 

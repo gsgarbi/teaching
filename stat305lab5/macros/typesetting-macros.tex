@@ -1,0 +1,59 @@
+\documentclass[letterpaper]{article}
+\usepackage[ansinew]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage[width=9\textwidth,font=small,labelfont=bf,belowskip=0.2cm]{caption}
+\usepackage[pdftex]{graphicx}
+\usepackage{listings}
+\usepackage{cprotect}
+\usepackage{amssymb}
+\usepackage{natbib}
+\usepackage{bm}
+\usepackage{setspace}
+\usepackage{fancyhdr} %Package for headings
+\usepackage{anysize} %Package for margins
+\usepackage{color}
+\usepackage{hyperref}
+\usepackage{caption}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{multirow}
+\usepackage{ifthen}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{url}
+
+\pagestyle{fancy}
+% Clear the header and footer
+\rhead{}
+\cfoot{}
+\lfoot{}
+% Set the right side of the footer to be the page number
+\fancyfoot[R]{\thepage}
+
+\marginsize{3cm}{3cm}{2cm}{2cm}
+
+% Define a variable which dictats if the solution key is typeset or the lab sheet for students.
+\newboolean{typesetsolution}
+\setboolean{typesetsolution}{false}
+
+% Define the question macro
+\newcommand{\question}[2]{%
+\item (#1 \ifthenelse{\equal{#1}{1}}{mark}{marks}) #2
+}
+
+% Define the solution macro which does not take the verbatim environment.
+% The first argument is optional and will be added to the empty space for students to write in.
+\newcommand{\solnoverbatim}[2][]{%
+\ifthenelse{\boolean{typesetsolution}}{%
+
+#2}{#1\vspace{30ex}}%
+}
+
+\outer\def\sol{\icprotect\solnoverbatim}
+
+\newcommand{\E}{{\rm E}} % was \textrm{E} - caused problem in superscript
+\newcommand{\Var}{\textrm{Var}}
+
+\newcommand{\subs}[3]{#1_#2, ..., #1_#3}
+
+

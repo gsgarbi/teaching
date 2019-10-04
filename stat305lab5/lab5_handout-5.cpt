@@ -1,0 +1,8 @@
+
+\sl
+$
+I(\theta) = - E(l''(\theta)) = E (\sumn x_i^2) = \sumn x_i^2 \\
+\text{An approximation for $\Var(\ttheta)$ is then: } \frac{1}{I(\theta)} = \frac{1}{\sumn x^2_i} \\
+$
+The approximation and the exact value for $\Var(\ttheta)$ coincide in this case.
+^^E^^L 
